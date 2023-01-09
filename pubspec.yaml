@@ -22,6 +22,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+    - res/icons/
+    - assets/database.db
+
   module:
     androidX: true
     androidPackage: com.example.flutter_tests
