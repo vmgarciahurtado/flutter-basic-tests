@@ -64,6 +64,7 @@ class CalculatorScreen extends StatelessWidget {
       child: TextField(
         textAlign: TextAlign.center,
         maxLines: 2,
+        enabled: false,
         controller: viewModel.textController,
         style: TextStyle(
           color: Colors.black87,
@@ -129,7 +130,9 @@ class CalculatorScreen extends StatelessWidget {
 
   Widget createNumberButton(int number) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        viewModel.addNumber(number);
+      },
       elevation: 2.0,
       fillColor: Colors.white,
       padding: const EdgeInsets.all(15.0),
@@ -143,13 +146,15 @@ class CalculatorScreen extends StatelessWidget {
 
   Widget createClearButton(int number) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        number == 1 ? viewModel.clearField() : viewModel.result();
+      },
       elevation: 2.0,
       fillColor: Colors.white,
       padding: const EdgeInsets.all(15.0),
       shape: const CircleBorder(),
       child: Text(
-        number == 1 ? "C" : "CE",
+        number == 1 ? "C" : "=",
         style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
       ),
     );
@@ -157,7 +162,9 @@ class CalculatorScreen extends StatelessWidget {
 
   Widget createOperatorButton(String symbol) {
     return RawMaterialButton(
-      onPressed: () {},
+      onPressed: () {
+        viewModel.addOperator(symbol);
+      },
       elevation: 2.0,
       fillColor: Colors.orange.shade300,
       padding: const EdgeInsets.all(15.0),
