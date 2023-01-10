@@ -13,6 +13,7 @@ class CalculatorScreen extends StatelessWidget {
       extendBody: false,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
+        key: const Key('floating_button'),
         onPressed: () {},
         child: const Icon(
           Icons.history,
@@ -62,9 +63,10 @@ class CalculatorScreen extends StatelessWidget {
         ),
       ),
       child: TextField(
+        key: const Key('main_text_field'),
         textAlign: TextAlign.center,
         maxLines: 2,
-        enabled: false,
+        enabled: true,
         controller: viewModel.textController,
         style: TextStyle(
           color: Colors.black87,
@@ -72,12 +74,6 @@ class CalculatorScreen extends StatelessWidget {
           fontSize: Get.textScaleFactor * 28,
         ),
         keyboardType: TextInputType.number,
-        toolbarOptions: const ToolbarOptions(
-          copy: true,
-          cut: true,
-          paste: false,
-          selectAll: true,
-        ),
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.0),
@@ -133,6 +129,7 @@ class CalculatorScreen extends StatelessWidget {
       onPressed: () {
         viewModel.addNumber(number);
       },
+      key: Key('$number'),
       elevation: 2.0,
       fillColor: Colors.white,
       padding: const EdgeInsets.all(15.0),
@@ -145,10 +142,12 @@ class CalculatorScreen extends StatelessWidget {
   }
 
   Widget createClearButton(int number) {
+    String key = number == 1 ? "C" : "=";
     return RawMaterialButton(
       onPressed: () {
         number == 1 ? viewModel.clearField() : viewModel.result();
       },
+      key: Key(key),
       elevation: 2.0,
       fillColor: Colors.white,
       padding: const EdgeInsets.all(15.0),
@@ -165,6 +164,7 @@ class CalculatorScreen extends StatelessWidget {
       onPressed: () {
         viewModel.addOperator(symbol);
       },
+      key: Key(symbol),
       elevation: 2.0,
       fillColor: Colors.orange.shade300,
       padding: const EdgeInsets.all(15.0),
