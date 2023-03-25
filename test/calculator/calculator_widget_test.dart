@@ -14,7 +14,6 @@ void main() {
 
     expect(find.byType(SafeArea), findsOneWidget,
         reason: 'It should be render exactly 1 SafeArea');
-
     /*expect(find.byType(Container), findsNWidgets(1),
         reason: 'It should be render exactly 3 Container');*/
   });

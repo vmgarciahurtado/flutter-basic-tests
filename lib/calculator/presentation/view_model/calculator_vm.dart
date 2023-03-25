@@ -42,27 +42,26 @@ class CalculatorViewModel extends GetxController {
     double b = secondNumber;
     switch (operator) {
       case "+":
-        textController.text =
-            '${stringResult(a, b, operator)} ' ' ${add(a, b)}';
+        textController.text = '${stringResult(a, b, operator)} ' '${add(a, b)}';
         break;
       case "-":
         textController.text =
-            '${stringResult(a, b, operator)} ' ' ${substract(a, b)}';
+            '${stringResult(a, b, operator)} ' '${substract(a, b)}';
         break;
       case "*":
         textController.text =
-            '${stringResult(a, b, operator)} ' ' ${multiply(a, b)}';
+            '${stringResult(a, b, operator)} ' '${multiply(a, b)}';
         break;
       case "/":
         textController.text =
-            '${stringResult(a, b, operator)} ' ' ${divide(a, b)}';
+            '${stringResult(a, b, operator)} ' '${divide(a, b)}';
         break;
       default:
     }
   }
 
   String stringResult(double firstNumber, secondNumber, String operator) {
-    return '$firsNumber '
+    return '$firsNumber'
         ' $operator'
         ' $secondNumber'
         ' =';
