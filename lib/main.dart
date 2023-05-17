@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tests/calculator/presentation/view/calculator_screen.dart';
 import 'package:flutter_tests/calculator_history/presentation/view/calculator_history_screen.dart';
 import 'package:get/get.dart';
-import 'package:flutter/widgets.dart';
-import 'dart:ui' show Paint, Path, Canvas;
 
 void main() => runApp(const MyApp());
 
