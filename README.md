@@ -1,10 +1,17 @@
-## Getting Started
+<!--![Forks](https://img.shields.io/badge/forks-44-blue)-->
+<!--![Stars](https://img.shields.io/badge/stars-13-yellow)-->
+# Testing-App
 
-For help getting started with Flutter development, view the online
-[documentation](https://flutter.dev/).
+## Description
+Welcome to the Flutter testing project!
 
-For instructions integrating Flutter modules to your existing applications,
-see the [add-to-app documentation](https://flutter.dev/docs/development/add-to-app).
+This project is a basic testing application built on top of the Flutter framework. It allows people to easily learn how to perform integration, widget and unit testing.
+
+The project is open source, so anyone can contribute to it. It's a great way to learn more about Flutter testing and contribute to the community.
+
+If you have any questions or suggestions, feel free to contact me.
+
+Thanks for your interest in the Flutter testing project.
 
 
 <img align="left"  src="./assets/app_img.png" style="background-color:white;border:5px solid white; margin:0px 0px 0px 10px" />
