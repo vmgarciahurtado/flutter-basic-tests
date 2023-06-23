@@ -7,9 +7,9 @@ import 'package:flutter_tests/main.dart' as app;
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  group('end-to-end test', () {
+  group('integration test', () {
     testWidgets(
-        'tap on the number 1 and verify if set the same number in the TextField',
+        'Make and operation and verify if set the correct result in the TextField',
         (tester) async {
       app.main();
       await tester.pumpAndSettle();
@@ -34,7 +34,7 @@ void main() {
 
       await Future.delayed(Duration(seconds: 2));
 
-      // Verify the TextField has the number 1.
+      // Verify the TextField has the correct result.
       expect(find.widgetWithText(TextField, '1.0 + 2.0 = 3.0'), findsOneWidget);
     });
   });
