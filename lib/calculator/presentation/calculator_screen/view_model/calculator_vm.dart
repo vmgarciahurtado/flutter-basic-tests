@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tests/calculator/domain/model/operation.dart';
+import 'package:flutter_tests/calculator/domain/service/calculator_service.dart';
 import 'package:get/get.dart';
 
 class CalculatorViewModel extends GetxController {
+  CalculatorService calculatorService;
+  CalculatorViewModel({required this.calculatorService});
   TextEditingController textController = TextEditingController();
 
   double firsNumber = -1;
@@ -40,24 +44,31 @@ class CalculatorViewModel extends GetxController {
   void result() {
     double a = firsNumber;
     double b = secondNumber;
+    int operation = 0;
+
     switch (operator) {
       case "+":
+        operation = 1;
         textController.text = '${stringResult(a, b, operator)} ' '${add(a, b)}';
         break;
       case "-":
+        operation = 2;
         textController.text =
             '${stringResult(a, b, operator)} ' '${substract(a, b)}';
         break;
       case "*":
+        operation = 3;
         textController.text =
             '${stringResult(a, b, operator)} ' '${multiply(a, b)}';
         break;
       case "/":
+        operation = 4;
         textController.text =
             '${stringResult(a, b, operator)} ' '${divide(a, b)}';
         break;
       default:
     }
+    saveResult(operation, textController.text);
   }
 
   String stringResult(double firstNumber, secondNumber, String operator) {
@@ -81,5 +92,10 @@ class CalculatorViewModel extends GetxController {
 
   double divide(double firstNumber, double secondNumber) {
     return firstNumber / secondNumber;
+  }
+
+  Future<void> saveResult(int operation, String result) async {
+    Operation op = Operation(operation: operation, result: result);
+    await calculatorService.saveOperation(op);
   }
 }

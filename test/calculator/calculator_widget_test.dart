@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_tests/calculator/presentation/view/calculator_screen.dart';
+import 'package:flutter_tests/calculator/presentation/calculator_screen/view/calculator_screen.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 void main() {
@@ -14,8 +14,6 @@ void main() {
 
     expect(find.byType(SafeArea), findsOneWidget,
         reason: 'It should be render exactly 1 SafeArea');
-    /*expect(find.byType(Container), findsNWidgets(1),
-        reason: 'It should be render exactly 3 Container');*/
   });
 
   /// Testing if the textfield is showing the number 1.

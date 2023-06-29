@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tests/calculator/presentation/view_model/calculator_vm.dart';
+import 'package:flutter_tests/calculator/domain/service/calculator_service.dart';
+import 'package:flutter_tests/calculator/infrastructure/calculator_repository_sqlite.dart';
+import 'package:flutter_tests/calculator/presentation/calculator_screen/view_model/calculator_vm.dart';
 import 'package:get/get.dart';
 
 class CalculatorScreen extends StatelessWidget {
   CalculatorScreen({super.key});
 
-  final viewModel = Get.put(CalculatorViewModel());
+  final viewModel = CalculatorViewModel(
+      calculatorService: CalculatorService(
+          iCalculatorRepository: CalculatorRepositorySqlite()));
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,9 @@ class CalculatorScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         key: const Key('floating_button'),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed('history');
+        },
         child: const Icon(
           Icons.history,
           color: Colors.white,
@@ -94,15 +100,7 @@ class CalculatorScreen extends StatelessWidget {
               spacing: 10,
               runSpacing: 10,
               children: [
-                createNumberButton(1),
-                createNumberButton(2),
-                createNumberButton(3),
-                createNumberButton(4),
-                createNumberButton(5),
-                createNumberButton(6),
-                createNumberButton(7),
-                createNumberButton(8),
-                createNumberButton(9),
+                for (int i = 1; i < 10; i++) createNumberButton(i),
                 createNumberButton(0),
                 createClearButton(1),
                 createClearButton(2),

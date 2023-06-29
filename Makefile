@@ -1,12 +1,14 @@
 runTests:
 	flutter test
 
-runAllIntegrationTests:
-	flutter test integration_test
+runUnitTest:
+	flutter test test/calculator/calculator_unit_test.dart
 
-runIndividualIntegrationTest:
+runWidgetTest:
+	flutter test test/calculator/calculator_widget_test.dart
+
+runVisualIntegrationTest:
 	flutter test integration_test/app_test.dart	
-
 
 showTestCoverage:
 	flutter test --coverage
