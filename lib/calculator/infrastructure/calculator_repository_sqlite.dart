@@ -24,13 +24,15 @@ class CalculatorRepositorySqlite extends ICalculatorRepository {
   }
 
   @override
-  Future<void> saveOperation(Operation operation) async {
+  Future<bool> saveOperation(Operation operation) async {
     try {
       SqliteService _sqliteService = SqliteService();
       Database db = await _sqliteService.openDB();
       await db.insert('operations_history', operation.toJson());
+      return true;
     } catch (e) {
       log('Error al registrar la  operacion $e');
+      return false;
     }
   }
 }

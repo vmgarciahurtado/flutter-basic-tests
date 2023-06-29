@@ -10,6 +10,14 @@ runWidgetTest:
 runVisualIntegrationTest:
 	flutter test integration_test/app_test.dart	
 
+
+runRepositoryTestMockito:
+	flutter test test/calculator/calculator_repository_test.dart
+
+
+buildMocks:
+	dart run build_runner build
+
 showTestCoverage:
 	flutter test --coverage
 	genhtml coverage/lcov.info -o coverage/html

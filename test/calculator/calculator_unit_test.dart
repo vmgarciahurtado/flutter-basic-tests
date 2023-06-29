@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_tests/calculator/domain/service/calculator_service.dart';
 import 'package:flutter_tests/calculator/infrastructure/calculator_repository_sqlite.dart';
 import 'package:flutter_tests/calculator/presentation/calculator_screen/view_model/calculator_vm.dart';
-import 'package:get/get.dart';
 
 main() {
   test('The calculator returns 8 when adding 6 and 2', () {

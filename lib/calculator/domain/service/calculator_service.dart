@@ -5,7 +5,7 @@ class CalculatorService {
   CalculatorService({required this.iCalculatorRepository});
   ICalculatorRepository iCalculatorRepository;
 
-  Future<void> saveOperation(Operation operation) async {
+  Future<bool> saveOperation(Operation operation) async {
     return await iCalculatorRepository.saveOperation(operation);
   }
 
